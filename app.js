@@ -5,11 +5,10 @@ const express = require("express");
 
 const app = express();
 
+const serverLess = require("serverless-http");
+
 // cors
 const cors = require("cors");
-
-// Connection
-const { connection } = require("./db/connect");
 
 // Router
 const dataRouter = require("./routes/dataRoute");
@@ -17,6 +16,7 @@ const dataRouter = require("./routes/dataRoute");
 // middleware
 const notFoundMiddleware = require("./middleware/not-found");
 
+const route = express.Router();
 app.use(
   cors({
     origin: "http://localhost:3000", // Replace with your frontend URL
@@ -41,4 +41,7 @@ const start = async () => {
   }
 };
 
+// app.use("/.netlify/functions/api", route);
+
+// module.exports.handler = serverLess(app);
 start();

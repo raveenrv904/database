@@ -7,7 +7,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,10 @@
     "http-status-codes": "^2.3.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.6.5",
+    "netlify-cli": "^17.8.1",
+    "netlify-lambda": "^2.0.16",
     "nodemon": "^3.0.2",
+    "serverless-http": "^3.2.0",
     "validator": "^13.11.0",
     "xss-clean": "^0.1.4"
   }
