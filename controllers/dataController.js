@@ -45,21 +45,6 @@ const getSingleData = async (req, res) => {
   res.send({ rows });
 };
 
-const updateData = async (req, res) => {
-  const { id, empid, name, dob, experience, salary, address, dept } = req.body;
-  if (!id) {
-    throw new CustomAPIError.NotFoundError("Id not Found");
-  }
-  const connection = await pool.getConnection();
-  const [rows] = await connection.query(
-    "UPDATE data SET empid=?, name=?, salary=?, dob=?, experience=?, address=?, dept=? WHERE id=?",
-    [empid, name, salary, dob, experience, address, dept, id]
-  );
-
-  connection.release();
-  res.send("Updated data");
-};
-
 const deleteData = async (req, res) => {
   const { id } = req.body;
   if (!id) {
@@ -79,6 +64,5 @@ module.exports = {
   createData,
   getAllData,
   getSingleData,
-  updateData,
   deleteData,
 };
